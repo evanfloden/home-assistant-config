@@ -1,0 +1,53 @@
+- id: stairway_lights
+  alias: Stairway Lights
+  trigger:
+  - above: 7
+    below: 9
+    entity_id: sensor.stairway_sensor_burglar
+    platform: numeric_state
+  action:
+  - data:
+      entity_id: light.stairway_light_lower
+    entity_id: group.stairway
+    service: light.turn_on
+  - alias: ''
+    data:
+      entity_id: light.stairway_light_upper
+    service: light.turn_on
+  - delay: 00:01:00
+  - data:
+      entity_id: light.stairway_light_lower
+    service: light.turn_off
+  - data:
+      entity_id: light.stairway_light_upper
+    service: light.turn_off
+- action:
+  - data:
+      entity_id: climate.central_heating_system
+      temperature: '17.0'
+    service: climate.set_temperature
+  alias: Central Heating On
+  condition:
+  - after: '16:00:00'
+    before: 06:00:00
+    condition: time
+  id: '1510605927115'
+  trigger:
+  - entity_id: groups.all_devices
+    platform: state
+    to: home
+- action:
+  - data:
+      entity_id: climate.central_heating_system
+      temperature: '14.0'
+    service: climate.set_temperature
+  alias: Central Heating Off
+  condition:
+  - after: 09:00:00
+    before: '17:00:00'
+    condition: time
+  id: '1510606757726'
+  trigger:
+  - entity_id: group.all_devices
+    platform: state
+    to: away

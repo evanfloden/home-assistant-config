@@ -1,0 +1,170 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 41.3984
+  longitude: 2.1741
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 23
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Madrid
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  base_url: evanfloden.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Alexa
+alexa:
+
+# Weather prediction
+sensor:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    monitored_conditions:
+      - precip_probability
+      - temperature
+      - temperature_max
+      - temperature_min
+
+# Device tracking
+device_tracker:
+- platform: owntracks_http
+  track_new_devices: no
+- platform: asuswrt
+  host: 192.168.2.1
+  username: !secret asuswrt_username
+  password: !secret asuswrt_password
+  interval_seconds: 10
+  consider_home: 180
+  track_new_devices: no
+
+# Amazon Hue for Alexa 
+emulated_hue:
+  host_ip: 192.168.2.148
+  listen_port: 80
+
+# Text to speech
+tts:
+  - platform: google
+
+# Z-wave
+zwave:
+  usb_path: /dev/ttyACM0
+
+# IKEA Tradfri
+tradfri:
+  host: 192.168.2.172
+  allow_tradfri_groups: false 
+
+# Amcrest Camera
+amcrest:
+ - host: 192.168.2.108
+   username: !secret amcrest_username
+   password: !secret amcrest_password
+   sensors:
+      - motion_detector
+      - sdcard
+   resolution: low
+   stream_source: rtsp
+
+
+climate:
+  - platform: generic_thermostat
+    name: Central Heating System
+    heater: switch.central_heating_switch
+    target_sensor: sensor.lounge_sensor_temperature
+    min_cycle_duration:
+      minutes: 5
+    keep_alive:
+      minutes: 15
+
+# Media Devices
+media_player:
+  - platform: webostv
+    host: 192.168.2.75
+    name: Living Room TV  
+    timeout: 5
+    turn_on_action:
+      service: persistent_notification.create
+      data:
+        message: "Turn on action"
+    customize:
+      sources:
+        - livetv
+        - youtube
+        - hdmi1
+        - hdmi2
+        - 'Amazon Prime Video'
+        - netflix
+
+# Manual Alarm 
+alarm_control_panel:
+  - platform: manual
+    disarm_after_trigger: true
+
+# Zones for location tracking
+zone:
+- name: Home
+  latitude: 41.480439
+  longitude: 2.321673
+  radius: 200
+  icon: mdi:home
+- name: CRG
+  latitude: 41.385221
+  longitude: 2.194218
+  radius: 200
+  icon: mdi:flask-outline
+- name: Besos
+  latitude: 41.423956
+  longitude: 2.230546
+  radius: 200
+  icon: mdi:tram
+- name: Montgat
+  latitude: 41.462978
+  longitude: 2.272088
+  radius: 200
+  icon: mdi:tram
+
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml

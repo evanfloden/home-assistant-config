@@ -1,0 +1,105 @@
+switch.babies_room_lights_switch:
+  friendly_name: Babies Room Main
+switch.babies_room_lights_switch_2:
+  friendly_name: Babies Room LED
+sensor.dark_sky_daily_high_temperature:
+  friendly_name: Daily high
+  icon: mdi:thermometer-lines
+sensor.dark_sky_daily_low_temperature:
+  friendly_name: Daily low
+  icon: mdi:thermometer
+sensor.dark_sky_temperature:
+  friendly_name: Current outdoor
+  icon: mdi:beach
+sensor.dark_sky_precip_probability:
+  friendly_name: Chance of rain
+  icon: mdi:weather-lightning-rainy
+binary_sensor.kitchen_smoke_sensor_sensor:
+  hidden: true
+sensor.kitchen_smoke_sensor_alarm_level:
+  hidden: true
+sensor.kitchen_smoke_sensor_alarm_type:
+  hidden: true
+sensor.kitchen_smoke_sensor_burglar:
+  hidden: true
+sensor.kitchen_smoke_sensor_general:
+  hidden: true
+sensor.kitchen_smoke_sensor_heat:
+  friendly_name: Heat
+  icon: mdi:alert-outline
+sensor.kitchen_smoke_sensor_heat_2:
+  hidden: true
+sensor.kitchen_smoke_sensor_power_management:
+  hidden: true
+sensor.kitchen_smoke_sensor_smoke:
+  hidden: true
+sensor.kitchen_smoke_sensor_smoke_2:
+  friendly_name: Smoke
+  icon: mdi:alert-outline
+sensor.kitchen_smoke_sensor_sourcenodeid:
+  hidden: true
+sensor.kitchen_smoke_sensor_system:
+  hidden: true
+sensor.kitchen_smoke_sensor_temperature:
+  friendly_name: Temperature
+sensor.lounge_sensor_temperature:
+  friendly_name: Temperature
+sensor.lounge_sensor_luminance:
+  friendly_name: Luminance
+  icon: mdi:weather-sunny
+sensor.lounge_sensor_burglar:
+  hidden: true
+binary_sensor.lounge_sensor_sensor:
+  friendly_name: Movement Sensor
+  icon: mdi:run-fast
+sensor.lounge_sensor_relative_humidity:
+  friendly_name: Humidity
+  icon: mdi:water-percent
+sensor.lounge_sensor_alarm_level:
+  hidden: true
+sensor.lounge_sensor_alarm_type:
+  hidden: true
+sensor.lounge_sensor_sourcenodeid:
+  hidden: true
+sensor.garage_sensor_temperature:
+  friendly_name: Temperature
+sensor.garage_sensor_luminance:
+  friendly_name: Luminance
+  icon: mdi:weather-sunny
+sensor.garage_sensor_burglar:
+  hidden: true
+binary_sensor.garage_sensor_sensor:
+  friendly_name: Movement Sensor
+  icon: mdi:run-fast
+sensor.garage_sensor_relative_humidity:
+  friendly_name: Humidity
+  icon: mdi:water-percent
+sensor.garage_sensor_alarm_level:
+  hidden: true
+sensor.garage_sensor_alarm_type:
+  hidden: true
+sensor.garage_sensor_sourcenodeid:
+  hidden: true
+sensor.stairway_sensor_luminance:
+  friendly_name: Luminance
+  icon: mdi:weather-sunny
+sensor.stairway_sensor_seismic_intensity:
+  friendly_name: Seismic Intensity
+  icon: mdi:swap-horizontal
+sensor.stairway_sensor_burglar:
+  friendly_name: Movement Sensor
+  icon: mdi:run-fast
+binary_sensor.stairway_sensor:
+  hidden: true
+sensor.stairway_sensor_alarm_level:
+  hidden: true
+sensor.stairway_sensor_alarm_type:
+  hidden: true
+sensor.stairway_sensor_general:
+  hidden: true
+sensor.stairway_sensor_sourcenodeid:
+  hidden: true
+sensor.stairway_sensor_temperature:
+  friendly_name: Temperature
+media_player.unnamed_device:
+  friendly_name: Panasonic TV
