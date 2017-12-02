@@ -37,6 +37,8 @@ updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
 
+map:
+        
 # Discover some devices automatically
 discovery:
 
@@ -64,6 +66,51 @@ sensor:
       - temperature
       - temperature_max
       - temperature_min
+  - platform: template
+    sensors:
+      stairway_sensor_battery:
+        value_template: >-
+          {%- if states.zwave.stairway_sensor -%}
+            {{ states.zwave.stairway_sensor.attributes.battery_level }}
+          {%- else -%}
+            N/A
+          {%- endif -%}
+        unit_of_measurement: '%'
+        entity_id: zwave.stairway_sensor
+  - platform: template
+    sensors:
+      lounge_sensor_battery:
+        value_template: >-
+          {%- if states.zwave.lounge_sensor -%}
+            {{ states.zwave.lounge_sensor.attributes.battery_level }}
+          {%- else -%}
+            N/A
+          {%- endif -%}
+        unit_of_measurement: '%'
+        entity_id: zwave.lounge_sensor
+  - platform: template
+    sensors:
+      garage_sensor_battery:
+        value_template: >-
+          {%- if states.zwave.garage_sensor -%}
+            {{ states.zwave.garage_sensor.attributes.battery_level }}
+          {%- else -%}
+            N/A
+          {%- endif -%}
+        unit_of_measurement: '%'
+        entity_id: zwave.garage_sensor
+  - platform: template
+    sensors:
+      kitchen_smoke_sensor_battery:
+        value_template: >-
+          {%- if states.zwave.kitchen_smoke_sensor -%}
+            {{ states.zwave.kitchen_smoke_sensor.attributes.battery_level }}
+          {%- else -%}
+            N/A
+          {%- endif -%}
+        unit_of_measurement: '%'
+        entity_id: zwave.kitchen_smoke_sensor
+
 
 # Device tracking
 device_tracker:

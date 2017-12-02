@@ -15,6 +15,7 @@ stairway:
     - sensor.stairway_sensor_luminance
     - sensor.stairway_sensor_seismic_intensity
     - sensor.stairway_sensor_temperature
+    - binary_sensor.stairway_sensor_sensor
 
 garage_sensor:
   name: Garage
@@ -47,3 +48,7 @@ batteries:
     - sensor.tradfri_motion_sensor
     - sensor.tradfri_remote_control
     - sensor.tradfri_remote_control_2
+    - sensor.stairway_sensor_battery
+    - sensor.garage_sensor_battery
+    - sensor.lounge_sensor_battery
+    - sensor.kitchen_smoke_sensor_battery

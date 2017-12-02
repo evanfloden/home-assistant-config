@@ -89,8 +89,6 @@ sensor.stairway_sensor_seismic_intensity:
 sensor.stairway_sensor_burglar:
   friendly_name: Movement Sensor
   icon: mdi:run-fast
-binary_sensor.stairway_sensor:
-  hidden: true
 sensor.stairway_sensor_alarm_level:
   hidden: true
 sensor.stairway_sensor_alarm_type:
@@ -103,3 +101,27 @@ sensor.stairway_sensor_temperature:
   friendly_name: Temperature
 media_player.unnamed_device:
   friendly_name: Panasonic TV
+binary_sensor.stairway_sensor_sensor:
+  friendly_name: Movement Sensor
+  icon: mdi:run-fast
+sensor.garage_sensor_battery:
+  friendly_name: Garage Sensor
+  icon: mdi:battery-50
+sensor.lounge_sensor_battery:
+  friendly_name: Lounge Sensor
+  icon: mdi:battery-50
+sensor.stairway_sensor_battery:
+  friendly_name: Stairway Sensor
+  icon: mdi:battery-50
+sensor.kitchen_smoke_sensor_battery:
+  friendly_name: Kitchen Smoke Sensor
+  icon: mdi:battery-50
+sensor.tradfri_motion_sensor:
+  friendly_name: Stairway Tradfri Motion Sensor
+  icon: mdi:battery-50
+sensor.tradfri_remote_control_2:
+  friendly_name: Gallery Tradfri Remote
+  icon: mdi:battery-50
+sensor.tradfri_remote_control:
+  friendly_name: Alcove Tradfri Remote
+  icon: mdi:battery-50
