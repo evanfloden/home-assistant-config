@@ -1,24 +1,21 @@
 - alias: Stairway Lights
-  trigger: 
-    - platform: state
-      entity_id: binary_sensor.stairway_sensor_sensor
-      to: 'on'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.stairway_sensor_sensor
+    to: 'on'
   action:
-    - service: homeassistant.turn_on
-      entity_id: group.stairway
-    - delay: 00:01:00
-    - service: homeassistant.turn_off
-      entity_id: group.stairway
+  - service: homeassistant.turn_on
+    entity_id: group.stairway
+  - delay: 00:01:00
+  - service: homeassistant.turn_off
+    entity_id: group.stairway
+  id: '1510605925938'
 - alias: Central Heating On
   action:
   - data:
       entity_id: climate.central_heating_system
       temperature: '17.0'
     service: climate.set_temperature
-  condition:
-  - after: 16:00:00
-    before: 06:00:00
-    condition: time
   id: '1510605927115'
   trigger:
   - entity_id: groups.all_devices
@@ -30,12 +27,8 @@
       entity_id: climate.central_heating_system
       temperature: '14.0'
     service: climate.set_temperature
-  condition:
-  - after: 09:00:00
-    before: '17:00:00'
-    condition: time
   id: '1510606757726'
   trigger:
   - entity_id: group.all_devices
     platform: state
-    to: away
+    to: not_home
