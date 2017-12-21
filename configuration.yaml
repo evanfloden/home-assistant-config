@@ -27,6 +27,8 @@ http:
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: evanfloden.duckdns.org:8123
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -54,8 +56,10 @@ logbook:
 # Track the sun
 sun:
 
-# Alexa
-alexa:
+# Cloud
+cloud:
+
+config:
 
 # Weather prediction
 sensor:
@@ -66,6 +70,10 @@ sensor:
       - temperature
       - temperature_max
       - temperature_min
+  - platform: template
+    sensors:
+      password:
+        value_template: !secret api_password
   - platform: template
     sensors:
       stairway_sensor_battery:
@@ -110,7 +118,17 @@ sensor:
           {%- endif -%}
         unit_of_measurement: '%'
         entity_id: zwave.kitchen_smoke_sensor
-
+  - platform: template
+    sensors:
+      alarm_sensor_battery:
+        value_template: >-
+          {%- if states.zwave.alarm_keypad -%}
+            {{ states.zwave.alarm_keypad.attributes.battery_level }}
+          {%- else -%}
+            N/A
+          {%- endif -%}
+        unit_of_measurement: '%'
+        entity_id: zwave.alarm_keypad
 
 # Device tracking
 device_tracker:
@@ -125,9 +143,9 @@ device_tracker:
   track_new_devices: no
 
 # Amazon Hue for Alexa 
-emulated_hue:
-  host_ip: 192.168.2.148
-  listen_port: 80
+#emulated_hue:
+#  host_ip: 192.168.2.148
+#  listen_port: 80
 
 # Text to speech
 tts:
@@ -136,6 +154,9 @@ tts:
 # Z-wave
 zwave:
   usb_path: /dev/ttyACM0
+  
+lock:
+ - platform: zwave
 
 # IKEA Tradfri
 tradfri:
@@ -144,14 +165,14 @@ tradfri:
 
 # Amcrest Camera
 amcrest:
- - host: 192.168.2.108
-   username: !secret amcrest_username
-   password: !secret amcrest_password
-   sensors:
+  - host: 192.168.2.108
+    username: !secret amcrest_username
+    password: !secret amcrest_password
+    sensors:
       - motion_detector
       - sdcard
-   resolution: low
-   stream_source: rtsp
+    resolution: low
+    stream_source: rtsp
 
 
 climate:
@@ -167,7 +188,7 @@ climate:
 # Media Devices
 media_player:
   - platform: webostv
-    host: 192.168.2.75
+    host: 192.168.2.74
     name: Living Room TV  
     timeout: 5
     turn_on_action:
@@ -187,6 +208,16 @@ media_player:
 alarm_control_panel:
   - platform: manual
     disarm_after_trigger: true
+
+# Notify Components
+notify:
+  - name: garage_speaker
+    platform: lannouncer
+    host: 192.168.2.20
+  - platform: webostv
+    host: 192.168.2.74
+    name: lounge_tv
+    icon: ha_favicon-192x192.png 
 
 # Zones for location tracking
 zone:
@@ -211,7 +242,13 @@ zone:
   radius: 200
   icon: mdi:tram
 
+panel_iframe:
+  terminal:
+    title: Terminal
+    icon: mdi:console
+    url: https://evanfloden.duckdns.org:7681
 
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+shell_command: !include shell_commands.yaml

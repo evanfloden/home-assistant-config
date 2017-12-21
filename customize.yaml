@@ -125,3 +125,10 @@ sensor.tradfri_remote_control_2:
 sensor.tradfri_remote_control:
   friendly_name: Alcove Tradfri Remote
   icon: mdi:battery-50
+sensor.alarm_sensor_battery:
+  icon: mdi:battery-50
+  friendly_name: Alarm Keypad
+switch.terrace_room_lights_switch_2:
+  friendly_name: Terrace Room LEDs
+sensor.password:
+  hidden: true

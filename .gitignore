@@ -6,4 +6,4 @@ secrets.yaml
 known_devices.yaml
 webostv.conf
 tts/
-
+shell_commands.yaml

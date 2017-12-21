@@ -52,3 +52,11 @@ batteries:
     - sensor.garage_sensor_battery
     - sensor.lounge_sensor_battery
     - sensor.kitchen_smoke_sensor_battery
+    - sensor.alarm_sensor_battery
+
+terrace_room:
+  name: Terrace Room
+  entities: 
+    - switch.terrace_room_lights_switch
+    - switch.terrace_room_lights_switch_2
+    - camera.amcrest_camera 
