@@ -14,7 +14,7 @@
   action:
   - data:
       entity_id: climate.central_heating_system
-      temperature: '17.0'
+      temperature: '18.0'
     service: climate.set_temperature
   id: '1510605927115'
   trigger:
@@ -139,3 +139,25 @@
   - entity_id: alarm_control_panel.ha_alarm
     platform: state
     to: triggered
+- action:
+  - data:
+      entity_id: switch.central_heating_switch
+    service: switch.toggle
+  - delay: 00:00:30
+  - data:
+      entity_id: switch.central_heating_switch
+    service: switch.toggle
+  alias: Keep Central Heating Alive
+  condition: []
+  id: '1517419740700'
+  trigger:
+  - at: 02:00:00
+    platform: time
+  - at: 07:00:00
+    platform: time
+  - at: '12:00:00'
+    platform: time
+  - at: '17:00:00'
+    platform: time
+  - at: '22:00:00'
+    platform: time

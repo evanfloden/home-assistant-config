@@ -57,7 +57,7 @@ logbook:
 sun:
 
 # Cloud
-cloud:
+#cloud:
 
 config:
 
@@ -145,9 +145,17 @@ device_tracker:
     track_new_devices: False
 
 # Amazon Hue for Alexa 
-#emulated_hue:
-#  host_ip: 192.168.2.148
-#  listen_port: 80
+emulated_hue:
+  host_ip: 192.168.2.148
+  off_maps_to_on_domains:
+  exposed_domains:
+    - script
+    - switch
+    - light
+    - group
+    - input_boolean
+    - media_player
+    - fan
 
 # Text to speech
 tts:
@@ -220,6 +228,9 @@ notify:
     host: 192.168.2.74
     name: lounge_tv
     icon: ha_favicon-192x192.png 
+  - platform: pushbullet
+    name: pushbullet
+    api_key: !secret pushbullet_api_key
 
 # Zones for location tracking
 zone:
