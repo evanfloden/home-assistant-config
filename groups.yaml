@@ -39,8 +39,11 @@ kitchen:
   name: Kitchen
   entities:
     - sensor.kitchen_smoke_sensor_heat
-    - sensor.kitchen_smoke_sensor_smoke_2
+    - sensor.kitchen_smoke_sensor_smoke
     - sensor.kitchen_smoke_sensor_temperature
+    - sensor.kitchen_smoke_sensor_smoke_2
+    - sensor.kitchen_smoke_sensor_heat_2
+
 
 batteries:
   name: Battery levels
@@ -59,4 +62,11 @@ terrace_room:
   entities: 
     - switch.terrace_room_lights_switch
     - switch.terrace_room_lights_switch_2
-    - camera.amcrest_camera
+    - sensor.amcrest_camera_motion_detected
+
+wall_plug:
+  name: Wall Plug
+  entities:
+    - switch.wall_plug_switch
+    - sensor.wall_plug_power
+    - sensor.wall_plug_energy

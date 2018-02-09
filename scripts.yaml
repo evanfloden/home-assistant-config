@@ -1,0 +1,7 @@
+  thermostat:
+    sequence:
+      - service: climate.set_temperature
+        data_template:
+          entity_id: climate.central_heating_system
+          temperature: "{{ requested_level }}"
+

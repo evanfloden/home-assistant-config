@@ -59,8 +59,6 @@ sun:
 # Cloud
 #cloud:
 
-config:
-
 # Weather prediction
 sensor:
   - platform: darksky
@@ -72,10 +70,6 @@ sensor:
       - temperature_min
   - platform: template
     sensors:
-      password:
-        value_template: !secret api_password
-  - platform: template
-    sensors:
       stairway_sensor_battery:
         value_template: >-
           {%- if states.zwave.stairway_sensor -%}
@@ -84,7 +78,6 @@ sensor:
             N/A
           {%- endif -%}
         unit_of_measurement: '%'
-        entity_id: zwave.stairway_sensor
   - platform: template
     sensors:
       lounge_sensor_battery:
@@ -95,7 +88,6 @@ sensor:
             N/A
           {%- endif -%}
         unit_of_measurement: '%'
-        entity_id: zwave.lounge_sensor
   - platform: template
     sensors:
       garage_sensor_battery:
@@ -106,7 +98,6 @@ sensor:
             N/A
           {%- endif -%}
         unit_of_measurement: '%'
-        entity_id: zwave.garage_sensor
   - platform: template
     sensors:
       kitchen_smoke_sensor_battery:
@@ -117,7 +108,6 @@ sensor:
             N/A
           {%- endif -%}
         unit_of_measurement: '%'
-        entity_id: zwave.kitchen_smoke_sensor
   - platform: template
     sensors:
       alarm_sensor_battery:
@@ -128,7 +118,7 @@ sensor:
             N/A
           {%- endif -%}
         unit_of_measurement: '%'
-        entity_id: zwave.alarm_keypad
+
 
 # Device tracking
 device_tracker:
@@ -165,9 +155,6 @@ tts:
 zwave:
   usb_path: /dev/ttyACM0
   
-lock:
- - platform: zwave
-
 # IKEA Tradfri
 tradfri:
   host: 192.168.2.172
@@ -175,14 +162,19 @@ tradfri:
 
 # Amcrest Camera
 amcrest:
-  - host: 192.168.2.108
-    username: !secret amcrest_username
-    password: !secret amcrest_password
-    sensors:
-      - motion_detector
-      - sdcard
-    resolution: low
-    stream_source: rtsp
+  host: 192.168.2.108
+  username: !secret amcrest_username
+  password: !secret amcrest_password
+  sensors:
+    - motion_detector
+    - sdcard
+
+ffmpeg:
+
+camera:
+  - platform: ffmpeg
+    name: "Amcrest Baby Cam"
+    input: !secret amcrest_babycam_ffmpeg_url
 
 
 climate:
@@ -198,7 +190,7 @@ climate:
 # Media Devices
 media_player:
   - platform: webostv
-    host: 192.168.2.74
+    host: 192.168.2.162
     name: Living Room TV  
     timeout: 5
     turn_on_action:
@@ -225,9 +217,9 @@ notify:
     platform: lannouncer
     host: 192.168.2.20
   - platform: webostv
-    host: 192.168.2.74
+    host: 192.168.2.162
     name: lounge_tv
-    icon: ha_favicon-192x192.png 
+    icon: ha_favicon-192x192.png  
   - platform: pushbullet
     name: pushbullet
     api_key: !secret pushbullet_api_key

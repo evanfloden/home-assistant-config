@@ -25,17 +25,19 @@ sensor.kitchen_smoke_sensor_burglar:
 sensor.kitchen_smoke_sensor_general:
   hidden: true
 sensor.kitchen_smoke_sensor_heat:
-  friendly_name: Heat
+  friendly_name: Kitchen Smoke Sensor Heat
   icon: mdi:alert-outline
 sensor.kitchen_smoke_sensor_heat_2:
-  hidden: true
+  friendly_name: Kitchen Smoke Sensor Heat 2
+  icon: mdi:server
 sensor.kitchen_smoke_sensor_power_management:
   hidden: true
 sensor.kitchen_smoke_sensor_smoke:
-  hidden: true
+  icon: mdi:tree
+  friendly_name: Kitchen Smoke Sensor Smoke
 sensor.kitchen_smoke_sensor_smoke_2:
-  friendly_name: Smoke
-  icon: mdi:alert-outline
+  friendly_name: Kitchen Smoke Sensor Smoke 2
+  icon: mdi:fire
 sensor.kitchen_smoke_sensor_sourcenodeid:
   hidden: true
 sensor.kitchen_smoke_sensor_system:
@@ -132,3 +134,22 @@ switch.terrace_room_lights_switch_2:
   friendly_name: Terrace Room LEDs
 sensor.password:
   hidden: true
+sensor.wall_plug_alarm_level:
+  hidden: true
+sensor.wall_plug_alarm_type:
+  hidden: true
+sensor.wall_plug_energy:
+  icon: mdi:flash
+sensor.wall_plug_exporting:
+  hidden: true
+sensor.wall_plug_power:
+  icon: mdi:elevation-rise
+sensor.wall_plug_power_management:
+  hidden: true
+sensor.wall_plug_sourcenodeid:
+  hidden: true
+switch.wall_plug_switch:
+  icon: mdi:power-plug
+sensor.amcrest_camera_motion_detected:
+  friendly_name: Camera Motion
+  icon: mdi:run
