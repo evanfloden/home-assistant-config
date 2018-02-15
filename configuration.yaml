@@ -167,15 +167,22 @@ amcrest:
   password: !secret amcrest_password
   sensors:
     - motion_detector
-    - sdcard
+      #    - sdcard
 
-ffmpeg:
+#ffmpeg:
 
-camera:
-  - platform: ffmpeg
-    name: "Amcrest Baby Cam"
-    input: !secret amcrest_babycam_ffmpeg_url
+#camera:
+#  - platform: ffmpeg
+#    name: "Amcrest Baby Cam"
+#    input: !secret amcrest_babycam_ffmpeg_url
 
+switch:
+  platform: command_line
+  switches:
+    vpn_tv:
+      command_on: "ssh -i .ssh/id_rsa skptic@192.168.2.1 'service start_vpnclient2'"
+      command_off: "ssh -i .ssh/id_rsa skptic@192.168.2.1 'service stop_vpnclient2'"
+      friendly_name: Nord VPN Switch
 
 climate:
   - platform: generic_thermostat
@@ -205,6 +212,9 @@ media_player:
         - hdmi2
         - 'Amazon Prime Video'
         - netflix
+  - platform: spotify
+    client_id: 7a72e572ba5241b08b484b5a85d7b036
+    client_secret: !secret spotify_client
 
 # Manual Alarm 
 alarm_control_panel:
@@ -251,7 +261,7 @@ panel_iframe:
   terminal:
     title: Terminal
     icon: mdi:console
-    url: https://evanfloden.duckdns.org:7681
+    url: https://floden.duckdns.org:7681
 
 group: !include groups.yaml
 automation: !include automations.yaml

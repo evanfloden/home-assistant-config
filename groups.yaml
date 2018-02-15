@@ -70,3 +70,14 @@ wall_plug:
     - switch.wall_plug_switch
     - sensor.wall_plug_power
     - sensor.wall_plug_energy
+    - sensor.wall_plug_power_2
+
+alarm_keypad:
+  name: Alarm Keypad
+  entities:
+    - sensor.alarm_keypad_access_control
+    - sensor.alarm_keypad_alarm_level
+    - sensor.alarm_keypad_alarm_type
+    - sensor.alarm_keypad_burglar
+    - sensor.alarm_keypad_sourcenodeid
+    - sensor.alarm_sensor_battery
