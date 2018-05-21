@@ -1,0 +1,292 @@
+binary_sensor.stairway_sensor_sensor:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076463104
+sensor.stairway_sensor_temperature:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076479506
+sensor.stairway_sensor_luminance:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076479538
+sensor.stairway_sensor_seismic_intensity:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076479890
+sensor.stairway_sensor_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 2-72057594077528065
+sensor.stairway_sensor_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 2-72057594077528081
+sensor.stairway_sensor_general:
+  name:
+  platform: zwave
+  unique_id: 2-72057594078232577
+switch.siren_switch:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093060096
+switch.central_heating_switch:
+  name:
+  platform: zwave
+  unique_id: 4-72057594109837312
+binary_sensor.lounge_sensor_sensor:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126794752
+sensor.lounge_sensor_temperature:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126811154
+sensor.lounge_sensor_luminance:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126811186
+sensor.lounge_sensor_relative_humidity:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126811218
+sensor.lounge_sensor_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 5-72057594127859713
+sensor.lounge_sensor_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 5-72057594127859729
+sensor.lounge_sensor_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 5-72057594127859745
+sensor.lounge_sensor_burglar:
+  name:
+  platform: zwave
+  unique_id: 5-72057594127859873
+binary_sensor.garage_sensor_sensor:
+  name: Movement
+  platform: zwave
+  unique_id: 6-72057594143571968
+sensor.garage_sensor_temperature:
+  name:
+  platform: zwave
+  unique_id: 6-72057594143588370
+sensor.garage_sensor_luminance:
+  name:
+  platform: zwave
+  unique_id: 6-72057594143588402
+sensor.garage_sensor_relative_humidity:
+  name:
+  platform: zwave
+  unique_id: 6-72057594143588434
+sensor.garage_sensor_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 6-72057594144636929
+sensor.garage_sensor_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 6-72057594144636945
+sensor.garage_sensor_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 6-72057594144636961
+sensor.garage_sensor_burglar:
+  name:
+  platform: zwave
+  unique_id: 6-72057594144637089
+switch.terrace_room_lights_switch:
+  name:
+  platform: zwave
+  unique_id: 7-72057594160168960
+switch.terrace_room_lights_switch_2:
+  name:
+  platform: zwave
+  unique_id: 7-144115188198096896
+binary_sensor.kitchen_smoke_sensor_sensor:
+  name:
+  platform: zwave
+  unique_id: 8-72057594177126400
+sensor.kitchen_smoke_sensor_temperature:
+  name:
+  platform: zwave
+  unique_id: 8-72057594177142802
+sensor.kitchen_smoke_sensor_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178191361
+sensor.kitchen_smoke_sensor_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178191377
+sensor.kitchen_smoke_sensor_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178191393
+sensor.kitchen_smoke_sensor_smoke:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178191425
+sensor.kitchen_smoke_sensor_heat:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178191473
+sensor.kitchen_smoke_sensor_burglar:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178191521
+sensor.kitchen_smoke_sensor_power_management:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178191537
+sensor.kitchen_smoke_sensor_system:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178191553
+sensor.kitchen_smoke_sensor_general:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178895873
+sensor.kitchen_smoke_sensor_smoke_2:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178895889
+sensor.kitchen_smoke_sensor_heat_2:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178895937
+switch.alarm_keypad_switch:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210500608
+sensor.alarm_keypad_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745793
+sensor.alarm_keypad_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745809
+sensor.alarm_keypad_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745825
+sensor.alarm_keypad_access_control:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745937
+sensor.alarm_keypad_burglar:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745953
+switch.wall_plug_switch:
+  name:
+  platform: zwave
+  unique_id: 11-72057594227277824
+sensor.wall_plug_power:
+  name:
+  platform: zwave
+  unique_id: 11-72057594227474498
+sensor.wall_plug_energy:
+  name:
+  platform: zwave
+  unique_id: 11-72057594227490818
+sensor.wall_plug_power_2:
+  name:
+  platform: zwave
+  unique_id: 11-72057594227490946
+sensor.wall_plug_exporting:
+  name:
+  platform: zwave
+  unique_id: 11-72057594227491328
+sensor.wall_plug_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 11-72057594228523009
+sensor.wall_plug_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 11-72057594228523025
+sensor.wall_plug_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 11-72057594228523041
+sensor.wall_plug_power_management:
+  name:
+  platform: zwave
+  unique_id: 11-72057594228523185
+sensor.fibaro_system_fgms001zw5_motion_sensor_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 2-72057594077528097
+sensor.fibaro_system_fgms001zw5_motion_sensor_burglar:
+  name:
+  platform: zwave
+  unique_id: 2-72057594077528225
+light.stairway_light_lower:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c355204400133-65536
+light.alcove_bedroom_light:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c355204400133-65540
+light.kitchen_light_right:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c355204400133-65545
+light.stairway_light_upper:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c355204400133-65543
+light.landing_closet_light:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c355204400133-65550
+light.kitchen_light_left:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c355204400133-65547
+light.gallery_light:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c355204400133-65542
+zwave.controller:
+  name:
+  platform: zwave
+  unique_id: node-1
+zwave.stairway_sensor:
+  name:
+  platform: zwave
+  unique_id: node-2
+zwave.central_heating:
+  name:
+  platform: zwave
+  unique_id: node-4
+zwave.lounge_sensor:
+  name:
+  platform: zwave
+  unique_id: node-5
+zwave.garage_sensor:
+  name:
+  platform: zwave
+  unique_id: node-6
+zwave.terrace_room_lights:
+  name:
+  platform: zwave
+  unique_id: node-7
+zwave.kitchen_smoke_sensor:
+  name:
+  platform: zwave
+  unique_id: node-8
+zwave.alarm_keypad:
+  name:
+  platform: zwave
+  unique_id: node-10
+zwave.wall_plug:
+  name:
+  platform: zwave
+  unique_id: node-11

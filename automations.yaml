@@ -1,20 +1,23 @@
-- alias: Stairway Lights
+- alias: Stairway Lights On
   trigger:
-  - platform: state
-    entity_id: binary_sensor.stairway_sensor_sensor
+  - entity_id: group.stairway
+    from: 'off'
+    platform: state
     to: 'on'
   action:
-  - service: homeassistant.turn_on
-    entity_id: group.stairway
-  - delay: 00:01:00
-  - service: homeassistant.turn_off
-    entity_id: group.stairway
+  - data:
+      brightness: '200'
+      entity_id:
+      - light.stairway_light_lower
+      - light.stairway_light_upper
+      transition: '5'
+    service: light.turn_on
   id: '1510605925938'
 - alias: Central Heating On
   action:
   - data:
       entity_id: climate.central_heating_system
-      temperature: '18.0'
+      temperature: '18.5'
     service: climate.set_temperature
   id: '1510605927115'
   trigger:
@@ -161,3 +164,93 @@
     platform: time
   - at: '22:00:00'
     platform: time
+- action:
+  - delay: 00:02:00
+  - data:
+      entity_id: group.stairway
+    service: homeassistant.turn_off
+  alias: Stairway Lights Off
+  condition: []
+  id: '1518096751261'
+  trigger:
+  - entity_id: group.stairway
+    platform: state
+    to: 'on'
+- action:
+  - service: notify.lounge_tv
+    data:
+      message: Heating is ON                                                 CURRENTLY
+        {{states.sensor.lounge_sensor_temperature.state}}°C                        SET
+        TO {{states.climate.central_heating_system.attributes.temperature}}°C
+  alias: Notify Heating On
+  condition: []
+  id: '1518123382906'
+  trigger:
+  - entity_id: switch.central_heating_switch
+    from: 'off'
+    platform: state
+    to: 'on'
+- action:
+  - service: notify.lounge_tv
+    data:
+      message: Heating is OFF                                                CURRENTLY
+        {{states.sensor.lounge_sensor_temperature.state}}°C                        SET
+        TO {{states.climate.central_heating_system.attributes.temperature}}°C
+  alias: Notify Heating Off
+  condition: []
+  id: '1518130456888'
+  trigger:
+  - entity_id: switch.central_heating_switch
+    from: 'on'
+    platform: state
+    to: 'off'
+- action:
+  - data:
+      brightness: '200'
+      entity_id:
+      - light.kitchen_light_right
+      - light.kitchen_light_left
+    service: light.turn_on
+  alias: Kitchen Lights On (Day)
+  condition:
+  - below: '30.0'
+    condition: numeric_state
+    entity_id: sensor.garage_sensor_luminance
+  - after: 05:00:00
+    condition: time
+  id: '1522788343645'
+  trigger:
+  - entity_id: binary_sensor.garage_sensor_sensor
+    from: 'off'
+    platform: state
+    to: 'on'
+- action:
+  - data:
+      brightness: '100'
+      entity_id:
+      - light.kitchen_light_right
+      - light.kitchen_light_left
+      transition: '30'
+    service: light.turn_on
+  alias: Kitchen Lights On (Night)
+  condition:
+  - before: 05:00
+    condition: time
+  id: '1522788647469'
+  trigger:
+  - entity_id: binary_sensor.garage_sensor_sensor
+    from: 'off'
+    platform: state
+    to: 'on'
+- action:
+  - data:
+      entity_id: group.kitchen
+    service: homeassistant.turn_off
+  alias: Kitchen Lights Off
+  condition: []
+  id: '1522789372379'
+  trigger:
+  - entity_id: binary_sensor.garage_sensor_sensor
+    from: 'on'
+    platform: state
+    to: 'off'

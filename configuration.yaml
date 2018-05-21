@@ -57,7 +57,7 @@ logbook:
 sun:
 
 # Cloud
-#cloud:
+cloud:
 
 # Weather prediction
 sensor:
@@ -133,19 +133,23 @@ device_tracker:
   consider_home: 180
   new_device_defaults:
     track_new_devices: False
+- platform: unifi
+  host: unifi
+  username: asuswrt_username
+  password: asuswrt_password
 
 # Amazon Hue for Alexa 
-emulated_hue:
-  host_ip: 192.168.2.148
-  off_maps_to_on_domains:
-  exposed_domains:
-    - script
-    - switch
-    - light
-    - group
-    - input_boolean
-    - media_player
-    - fan
+#emulated_hue:
+#  host_ip: 192.168.2.148
+#  off_maps_to_on_domains:
+#  exposed_domains:
+#    - script
+#    - switch
+#    - light
+#    - group
+#    - input_boolean
+#    - media_player
+#    - fan
 
 # Text to speech
 tts:
@@ -154,7 +158,8 @@ tts:
 # Z-wave
 zwave:
   usb_path: /dev/ttyACM0
-  
+  polling_interval: 3000
+
 # IKEA Tradfri
 tradfri:
   host: 192.168.2.172
@@ -176,13 +181,20 @@ amcrest:
 #    name: "Amcrest Baby Cam"
 #    input: !secret amcrest_babycam_ffmpeg_url
 
-switch:
-  platform: command_line
-  switches:
-    vpn_tv:
-      command_on: "ssh -i .ssh/id_rsa skptic@192.168.2.1 'service start_vpnclient2'"
-      command_off: "ssh -i .ssh/id_rsa skptic@192.168.2.1 'service stop_vpnclient2'"
-      friendly_name: Nord VPN Switch
+      #switch:
+      #platform: command_line
+      #switches:
+      #vpn_tv:
+      #command_on: "yes | ssh -oStrictHostKeyChecking=no -i .ssh/id_rsa skptic@192.168.2.1 'service start_vpnclient2'"
+      #command_off: "yes | ssh -oStrictHostKeyChecking=no -i .ssh/id_rsa skptic@192.168.2.1 'service stop_vpnclient2'"
+      #friendly_name: Nord VPN Switch
+
+      #binary_sensor:
+      #- platform: command_line
+      #command: "yes | ssh -oStrictHostKeyChecking=no -i .ssh/id_rsa skptic@192.168.2.1 'nvram get vpn_client2_state'"
+      #payload_on: "2"
+      #payload_off: "0"
+      #scan_interval: 60
 
 climate:
   - platform: generic_thermostat
@@ -212,6 +224,7 @@ media_player:
         - hdmi2
         - 'Amazon Prime Video'
         - netflix
+        - 'Smart IPTV'
   - platform: spotify
     client_id: 7a72e572ba5241b08b484b5a85d7b036
     client_secret: !secret spotify_client
@@ -261,7 +274,7 @@ panel_iframe:
   terminal:
     title: Terminal
     icon: mdi:console
-    url: https://floden.duckdns.org:7681
+    url: https://evanfloden.duckdns.org:7681
 
 group: !include groups.yaml
 automation: !include automations.yaml

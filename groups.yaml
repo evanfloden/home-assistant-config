@@ -10,21 +10,28 @@ stairway:
   name: Stairway
   entities:
     - light.stairway_light_lower
+    - light.landing_closet_light
     - light.stairway_light_upper
+
+bedroom:
+  name: Bedroom
+  entities:
     - sensor.stairway_sensor_burglar
     - sensor.stairway_sensor_luminance
     - sensor.stairway_sensor_seismic_intensity
     - sensor.stairway_sensor_temperature
     - binary_sensor.stairway_sensor_sensor
 
-garage_sensor:
-  name: Garage
+kitchen:
+  name: Kitchen
   entities:
     - binary_sensor.garage_sensor_sensor
     - sensor.garage_sensor_burglar
     - sensor.garage_sensor_luminance
     - sensor.garage_sensor_relative_humidity
     - sensor.garage_sensor_temperature
+    - light.kitchen_light_right
+    - light.kitchen_light_left
 
 lounge_sensor:
   name: Lounge
@@ -35,8 +42,8 @@ lounge_sensor:
     - sensor.lounge_sensor_relative_humidity
     - sensor.lounge_sensor_temperature
 
-kitchen:
-  name: Kitchen
+kitchen_smoke:
+  name: Kitchen Smoke Alarm
   entities:
     - sensor.kitchen_smoke_sensor_heat
     - sensor.kitchen_smoke_sensor_smoke
@@ -48,7 +55,9 @@ kitchen:
 batteries:
   name: Battery levels
   entities: 
-    - sensor.tradfri_motion_sensor
+    - sensor.stairway_sensor_lower
+    - sensor.stairway_sensor_landing
+    - sensor.stairway_sensor_upper
     - sensor.tradfri_remote_control
     - sensor.tradfri_remote_control_2
     - sensor.stairway_sensor_battery
@@ -56,6 +65,7 @@ batteries:
     - sensor.lounge_sensor_battery
     - sensor.kitchen_smoke_sensor_battery
     - sensor.alarm_sensor_battery
+    - sensor.kitchen_remote
 
 terrace_room:
   name: Terrace Room
